@@ -1,6 +1,11 @@
 #include <stdio.h>
 
-int main(void) /* main is the entry point of the program    */
+/**
+ * main - prints string using puts
+ *
+ * Return: Exit code
+ */
+int main(void) 
 {
 puts("\"Programming is like building a multilingual puzzle");
 return (0);
