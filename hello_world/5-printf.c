@@ -1,2 +1,11 @@
-#!/bin/bash
-echo '#include <stdio.h>\nint main(void) { puts("with proper grammar, but the outcome is a piece of art,"); return 0; }' > program.c && gcc -Wall program.c -o program && ./program
+#include <stdio.h>
+/**
+ * main - starts program
+ *
+ * Return: exit code 0 or something else
+ */
+int main(void)
+{
+	printf("with proper grammar, but the outcome is a piece of art,\n");
+	return (0);
+}
