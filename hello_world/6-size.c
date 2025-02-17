@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 /**
-* sizeof - determines size of data type
-* %zu - format specifier for sizeof result
-* \n - newlines
-* main - entry point of program
-* return - value 1 is good, else bad
+* description: a program to return data size
+* sizeof: determines size of data type
+* %zu: format specifier
+* main: entry point of program
+* return: exit code
 */
 
 int main(void)
