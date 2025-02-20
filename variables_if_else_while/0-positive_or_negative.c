@@ -5,7 +5,7 @@
 /**
 * main: Entry point of the program
 *
-* Description: else-if loop for assigning 
+* Description: else-if loop for assigning
 * Return: Always 0 (Success)
 */
 
