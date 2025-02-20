@@ -3,10 +3,9 @@
 #include <stdio.h>
 
 /**
-* main: Entry point of the program
-* my_function: assigns logical opertator to value
-* Description: else-if loop for assigning
-* Return: Always 0 (Success)
+* main - Entry point to program
+*
+* Return: Exit code from program
 */
 
 int main(void)
