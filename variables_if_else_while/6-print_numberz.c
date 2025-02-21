@@ -12,7 +12,7 @@ int main(void)
 int digitz;
 for (digitz = 0; digitz <= 9; digitz++)
 {
-putchar(digitz + 0);
+putchar(digitz + '0');
 }
 putchar('\n');
 return(0);
