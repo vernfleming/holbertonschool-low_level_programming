@@ -16,6 +16,7 @@ putchar(current_letter);
 for (current_letter = 'A'; current_letter <= 'Z'; current_letter++)
 {
 putchar(current_letter);
+}
 putchar('\n');
 return (0);
 }
