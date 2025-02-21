@@ -15,5 +15,5 @@ for (digitz = 0; digitz <= 9; digitz++)
 putchar(digitz + '0');
 }
 putchar('\n');
-return(0);
+return (0);
 }
