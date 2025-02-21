@@ -11,8 +11,8 @@ int main(void)
 int digits;
 for (digits = 0; digits <= 9; digits++)
 {
-putchar(digit + '0');
-if (digit != 9)
+putchar(digits + '0');
+if (digits != 9)
 {
 putchar(',');
 putchar(' ');
