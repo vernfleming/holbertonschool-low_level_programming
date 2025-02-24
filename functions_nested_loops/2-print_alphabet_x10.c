@@ -20,5 +20,6 @@ letter++;
 }
 _putchar('\n');
 i++;
-return;
 }
+}
+
