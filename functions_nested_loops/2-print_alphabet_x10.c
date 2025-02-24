@@ -1,30 +1,24 @@
-#include <stdio.h>
+#include "main.h"
 
-/**                                                                                                                              
- * main - check the code                                                                                                         
- *                                                                                                                               
- * Return: Always 0.                                                                                                             
+/**
+ * print_alphabet - prints alphabet in lower case followed by new line
+ *
+ * Return: Always 0.
  */
 
-void putchar_jb(char c) {
-putchar(c);
-}
-
-void letters(void) {
-char letter;
-for (letter = 'a'; letter <= 'z'; letter++) {
+void print_alphabet(void)
+{
+int i = 0;
+char letter = 'a'; 
+while (i < 10)
+{
+letter = 'a';
+while (letter <= 'z')
+{
+_putchar(letter);
+letter++;
 }
 _putchar('\n');
-}
-
-void letters_10(void) {
-int i;
-for (i = 0; i <10; i++) {
-letters():
-}
-}
-
-int main(void) {
-letters_10();
-return(0);
+i++;
+return;
 }
