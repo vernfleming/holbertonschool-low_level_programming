@@ -6,7 +6,7 @@
 
 void print_numbers(void)
 {
-char numbers90 = "0123456789\n";
+char numbers[] = "0123456789\n";
 int i = 0;
 while (numbers[i] != '\0')
 {
