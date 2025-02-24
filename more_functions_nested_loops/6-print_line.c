@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_line - does what it says */
+ * print_line - does what it says
  * @n: number of small lines
  */
 
