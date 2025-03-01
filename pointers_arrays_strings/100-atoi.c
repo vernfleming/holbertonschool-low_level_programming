@@ -31,5 +31,5 @@ else if (found_digit)
 break;
 s++;
 }
-return (result * sign);
+return (result *sign);
 }
