@@ -10,7 +10,7 @@ int i = 0;
 char separators[] = " \t\n,;.!?\"(){}";
 int j;
 if (str[i] >= 'a' && str[i] <= 'z')
-{ 
+{
 str[i] -= ('a' - 'A');
 }
 while (str[i] != '\0')
