@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * main - entry
+ * _memset - fills memory
  * @s: does something
  * @b: does something
  * @n: does something
