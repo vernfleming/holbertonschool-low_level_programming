@@ -6,7 +6,7 @@
  * @s: does something
  * @b: does something
  * @n: does something
- * return: pointer to memory
+ * return: pointer to memory s 0 for success
  */
 
 char *_memset(char *s, char b, unsigned int n)
