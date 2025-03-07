@@ -3,10 +3,10 @@
 
 /**
  * _memset - fills memory
- * @s: does something
- * @b: does something
- * @n: does something
- * return: s
+ * @s: pointer to block of memory that needs filling
+ * @b: second parameter
+ * @n: number of bytes
+ * Return: s
  */
 
 char *_memset(char *s, char b, unsigned int n)
