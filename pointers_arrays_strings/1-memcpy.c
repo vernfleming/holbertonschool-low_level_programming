@@ -5,12 +5,12 @@
  * @buffer: the address of memory to print
  * @size: the size of the memory to print
  *
- * Return: Nothing.
+ * Return: count.
  */
 
 unsigned int _strspn(char *s, char *accept)
 {
-int count =0;
+int count = 0;
 int i, sum;
 while (*s) {
 sum = 0;
