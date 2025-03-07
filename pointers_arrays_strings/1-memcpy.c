@@ -1,36 +1,20 @@
-#include "main.h"
+#include <stdio.h>
+#include <string.h>
 
 /**
- * _strspn - gets length of a prefix
- * @s: input string
- * @accept: the set of chars
- *
- * Return: 's' also in 'accept'
+ * _memcpy - copies memory 
+ * @dest: pointer to destination array
+ * @src: source of data
+ * @n: bytes to be copied
+ * Return: dest
  */
 
-unsigned int _strspn(char *s, char *accept)
+char *_memcpy(char *dest, char *src, unsigned int n)
 {
-unsigned int count = 0;
-int i,
-int sum = 0;
- 
-while (*s)
+unsigned int i;
+for (i = 0; i < n; i++)
 {
-sum = 0;
-for (i = 0; accept[i]; i++)
-{
-if (*s == accept[i])
-{
-sum = 1;
-break;
+dest[i] = src[i];
 }
-}
-if (!sum)
-{
-break;
-}
-s++;
-count++;
-}
-return (count);
+return (*dest);
 }
