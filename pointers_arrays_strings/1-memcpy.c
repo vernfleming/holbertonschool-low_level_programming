@@ -1,18 +1,21 @@
 #include "main.h"
 
 /**
- * simple_print_buffer - prints buffer in hexa
- * @buffer: the address of memory to print
- * @size: the size of the memory to print
+ * _strspn - gets length of a prefix
+ * @s: input string
+ * @accept: the set of chars
  *
- * Return: count.
+ * Return: 's' also in 'accept'
  */
 
-unsigned int _strspn(char *s, char *accept)
+unsigned int _strspn(const char *s, const char *accept)
 {
-int count = 0;
-int i, sum;
-while (*s) {
+unsigned int count = 0;
+int i,
+int sum;
+ 
+while (*s)
+{
 sum = 0;
 for (i = 0; accept[i]; i++)
 {
@@ -22,7 +25,7 @@ sum = 1;
 break;
 }
 }
-if (sum == 0)
+if (!sum)
 {
 break;
 }
