@@ -18,7 +18,7 @@ while (*a)
 {
 if (*s == *a)
 {
-return (char *)s;
+return (char *) s;
 }
 a++;
 }
