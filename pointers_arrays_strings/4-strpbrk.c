@@ -18,11 +18,11 @@ while (*a)
 {
 if (*s == *a)
 {
-return (char *) s;
+return (s);
 }
 a++;
 }
 s++;
 }
-return (NULL);
+return (0);
 }
