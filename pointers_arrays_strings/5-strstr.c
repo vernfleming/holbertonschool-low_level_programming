@@ -22,7 +22,7 @@ h++;
 n++;
 }
 if (*n == '\0')
-  return (char *)haystack;
+return (haystack);
 haystack++;
 }
 return (0);
