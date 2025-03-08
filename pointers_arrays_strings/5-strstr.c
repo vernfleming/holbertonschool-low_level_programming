@@ -11,7 +11,7 @@
 char *_strstr(char *haystack, char *needle)
 {
 if (*needle == '\0')
-return (char *)haystack;
+return (haystack);
 while (*haystack)
 {
 const char *h = haystack;
@@ -25,5 +25,5 @@ if (*n == '\0')
   return (char *)haystack;
 haystack++;
 }
-return (haystack);
+return (0);
 }
