@@ -3,7 +3,7 @@
 #include "main.h"
 
 /**
- * _memcpy - copies memory 
+ * _memcpy - copies memory
  * @dest: pointer to destination array
  * @src: source of data
  * @n: bytes to be copied
