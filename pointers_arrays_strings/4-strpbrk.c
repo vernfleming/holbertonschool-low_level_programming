@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
-/* _strpbrk - locates the first occurence of any character from 'accept' in 's'
+/**
+ * _strpbrk - locates the first occurence of any character from 'accept' in 's'
  * @s: the string to be searched
  * @accept: the set of characters to look for
  * Description: this function searches the string 's'
