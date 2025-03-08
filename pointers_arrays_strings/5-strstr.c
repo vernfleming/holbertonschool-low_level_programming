@@ -1,14 +1,14 @@
 #include <stdio.h>
 
 /**
- * _strstr - Locates the first occurrence of the substring 'needle' in the string 'haystack'
- * @haystack: The string to be searched
- * @needle: The substring to search for
+ * _strstr - findss the first occurrence of the substr 'needle' in the string 'haystack'
+ * @haystack: the string to be searched
+ * @needle: the substring to search for
  *
- * Return: a pointer to the first occurrence of the substring in 'haystack' or NULL if not there
+ * Return: a pointer to first occurrence of the substr in 'haystack' or NULL
  */
 
-char *_strstr(char *haystack, char *needle) 
+char *_strstr(char *haystack, char *needle)
 {
 if (*needle == '\0')
 return (char *)haystack;
@@ -25,5 +25,5 @@ if (*n == '\0')
 return (char *)haystack;
 haystack++;
 }
-return(NULL);
+return (NULL);
 }
