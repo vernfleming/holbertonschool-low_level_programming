@@ -5,7 +5,7 @@
  * main - takes two integers as args and multiplies them
  * @argc: Arg count
  * @argv: Arg vector
- * 
+ * text
  * Return: 0 for success, 1 for an error
  */
 
