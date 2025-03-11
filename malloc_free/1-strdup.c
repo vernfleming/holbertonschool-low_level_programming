@@ -9,6 +9,7 @@
  *
  * Return: copied string, null if insufficent memory
  */
+
 char *_strdup(char *str)
 {
 char *s;
@@ -21,7 +22,7 @@ while (str[length] != '\0')
 length++;
 }
 length = length + 1;
-s  = malloc(length * sizeof(char));
+s  = malloc(length *sizeof(char));
 if (s == NULL)
 return (NULL);
 for (i = 0; i < length; i++)
