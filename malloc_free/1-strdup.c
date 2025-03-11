@@ -4,9 +4,9 @@
 #include <stdlib.h>
 /*
  * _strdup -  returns a pointer to a newly allocated space in memory
- * _strdup - Creates a duplicate of a given string in dynamically allocated memory.
+ * _strdup - Creates a duplicate of string in dynamically allocated memory
  * @str: string to copy
- *
+ * Description: does what it says on the box
  * Return: copied string, null if insufficent memory
  */
 
