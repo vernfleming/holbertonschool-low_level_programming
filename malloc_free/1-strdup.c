@@ -16,7 +16,7 @@ int i;
 int length = 0;
 if (str == NULL)
 return (NULL);
-while (str[length] != ‘\0’)
+while (str[length] != '\0')
 {
 length++;
 }
