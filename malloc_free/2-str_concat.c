@@ -10,7 +10,8 @@
  * Return: A pointer to the newly allocated space in memory
  */
 
-char *str_concat(char *s1, char *s2) {
+char *str_concat(char *s1, char *s2)
+{
 char *concat;
 unsigned int length1 = 0, length2 = 0, i, j;
 

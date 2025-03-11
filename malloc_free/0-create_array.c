@@ -8,7 +8,8 @@
  * Return: A pointer to the allocated memory, or NULL if 0
  */
 
-char *create_array(unsigned int size, char c) {
+char *create_array(unsigned int size, char c)
+{
 char *arr;
 unsigned int i;
 if (size == 0)
