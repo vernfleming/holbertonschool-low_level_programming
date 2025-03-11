@@ -3,8 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 /*
- *_strdup -  returns a pointer to a newly allocated space in memory
- *
+ * _strdup -  returns a pointer to a newly allocated space in memory
  * @str: string to copy
  *
  * Return: copied string, null if insufficent memory
