@@ -21,6 +21,7 @@ int string_length(char *str) {
 /* Function to create a new dog */
 dog_t *new_dog(char *name, float age, char *owner) {
     /* Allocate memory for the new dog structure */
+  int i;
     dog_t *d = malloc(sizeof(dog_t));
     if (d == NULL) {  /* Check if malloc failed */
         return NULL;
