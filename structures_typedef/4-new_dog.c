@@ -10,6 +10,7 @@ typedef struct dog {
 
 /* Function to calculate the length of a string manually */
 int string_length(char *str) {
+  int i;
     int len = 0;
     while (str[len] != '\0') {
         len++;
@@ -33,7 +34,7 @@ dog_t *new_dog(char *name, float age, char *owner) {
             return NULL;
         }
         /* Manual string copy (without using memcpy or strdup) */
-        for (int i = 0; name[i] != '\0'; i++) {
+        for (i = 0; name[i] != '\0'; i++) {
             d->name[i] = name[i];
         }
         d->name[string_length(name)] = '\0';  /* Null terminate the string */
