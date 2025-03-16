@@ -10,7 +10,7 @@ typedef struct dog {
 
 /* Function to calculate the length of a string manually */
 int string_length(char *str) {
-  int i;
+  
     int len = 0;
     while (str[len] != '\0') {
         len++;
