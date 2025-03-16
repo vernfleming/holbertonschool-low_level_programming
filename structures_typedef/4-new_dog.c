@@ -10,6 +10,7 @@ typedef struct dog {
 
 dog_t *new_dog(char *name, float age, char *owner) {
     /* Allocate memory for the new dog structure */
+  int i;
     dog_t *d = malloc(sizeof(dog_t));
     if (d == NULL) {  /* Check if malloc failed */
         return NULL;
@@ -23,7 +24,7 @@ dog_t *new_dog(char *name, float age, char *owner) {
             return NULL;
         }
         /* Manual string copy (without using memcpy or strdup) */
-        for (int i = 0; name[i] != '\0'; i++) {
+        for (i = 0; name[i] != '\0'; i++) {
             d->name[i] = name[i];
         }
         d->name[strlen(name)] = '\0';  /* Null terminate the string */
@@ -40,7 +41,7 @@ dog_t *new_dog(char *name, float age, char *owner) {
             return NULL;
         }
         /* Manual string copy (without using memcpy or strdup) */
-        for (int i = 0; owner[i] != '\0'; i++) {
+        for (i = 0; owner[i] != '\0'; i++) {
             d->owner[i] = owner[i];
         }
         d->owner[strlen(owner)] = '\0';  /* Null terminate the string */
