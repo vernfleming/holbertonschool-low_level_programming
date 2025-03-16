@@ -51,19 +51,3 @@ dog_t *new_dog(char *name, float age, char *owner) {
 
     return d;
 }
-
-int main() {
-    dog_t *my_dog = new_dog("Ghost", 4.75, "Jon Snow");
-
-    if (my_dog != NULL) {
-        printf("My name is %s, I am %.2f, and my owner is %s\n", my_dog->name, my_dog->age, my_dog->owner);
-
-        free(my_dog->name);
-        free(my_dog->owner);
-        free(my_dog);
-    } else {
-        printf("Failed to create a new dog.\n");
-    }
-
-    return 0;
-}
