@@ -1,7 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>  /* For malloc and free */
-#include <string.h>  /* For memcpy */
-#include "dog.h"
+#include <string.h>  /* For strlen */
+
+typedef struct dog {
+    char *name;
+    float age;
+    char *owner;
+} dog_t;
 
 dog_t *new_dog(char *name, float age, char *owner) {
     /* Allocate memory for the new dog structure */
@@ -10,19 +15,23 @@ dog_t *new_dog(char *name, float age, char *owner) {
         return NULL;
     }
 
-    /* Allocate memory for the name string and copy the content */
+    /* Allocate memory for the name string and copy the content manually */
     if (name != NULL) {
         d->name = malloc(strlen(name) + 1);  /* +1 for the null terminator */
         if (d->name == NULL) {  /* Check if malloc failed */
             free(d);
             return NULL;
         }
-        memcpy(d->name, name, strlen(name) + 1);  /* Copy the name */
+        /* Manual string copy (without using memcpy or strdup) */
+        for (int i = 0; name[i] != '\0'; i++) {
+            d->name[i] = name[i];
+        }
+        d->name[strlen(name)] = '\0';  /* Null terminate the string */
     } else {
         d->name = NULL;  /* If name is NULL, set it to NULL */
     }
 
-    /* Allocate memory for the owner string and copy the content */
+    /* Allocate memory for the owner string and copy the content manually */
     if (owner != NULL) {
         d->owner = malloc(strlen(owner) + 1);  /* +1 for the null terminator */
         if (d->owner == NULL) {  /* Check if malloc failed */
@@ -30,7 +39,11 @@ dog_t *new_dog(char *name, float age, char *owner) {
             free(d);
             return NULL;
         }
-        memcpy(d->owner, owner, strlen(owner) + 1);  /* Copy the owner */
+        /* Manual string copy (without using memcpy or strdup) */
+        for (int i = 0; owner[i] != '\0'; i++) {
+            d->owner[i] = owner[i];
+        }
+        d->owner[strlen(owner)] = '\0';  /* Null terminate the string */
     } else {
         d->owner = NULL;  /* If owner is NULL, set it to NULL */
     }
