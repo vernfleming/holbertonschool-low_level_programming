@@ -1,3 +1,4 @@
+#include "dog.h"
 #include <stdio.h>
 
 /**
@@ -7,9 +8,7 @@
  * @name: name of dog
  * @age: age of dog
  * @owner: owner of the dog
- *
  * Description: as above
- *
  * Return: void
  */
 
