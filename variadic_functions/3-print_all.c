@@ -1,69 +1,136 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * print_all - Prints the arguments based on the chars in the format
+ *
+ * @format: A string/set of chars which specify what data types to print
+ *
+ * Description: Prints the arguments based on the chars in the format string
+ *
+ * Return: void
+ */
 
 void print_all(const char * const format, ...)
 {
-    va_list args;
-    int i = 0, j;
-    int printed = 0;
+	va_list args;
+	char (*get_print_func_fp)(char *s);
+	int i = 0, j = 0;
 
-    print_funct pfs[] = {
-        {'c', print_char},
-        {'i', print_int},
-        {'f', print_float},
-        {'s', print_str},
-        {0, NULL}  /* End of array */
-    };
+	va_start(args, format);
 
-    va_start(args, format);
+	while (i < 4)
+	{
+		j = 0;
 
-    while (format && format[i] != '\0')
-    {
-        j = 0;
+		while (pfs[j].pf != '\0')
+		{
+			if (format[i] == pfs[j].pf
+				get_print_func_fp[j].f(va_args(args, char *);
+			j++;
+		}
+	i++;
 
-        while (pfs[j].pf != 0)
-        {
-            if (format[i] == pfs[j].pf)
-            {
-                if (printed == 1)
-                    printf(", ");
-                pfs[j].f(args);  /* Call the function */
-                printed = 1;
-                break;
-            }
-            j++;
-        }
-        i++;
-    }
-
-    va_end(args);
-    printf("\n");
+	va_end(args);
+	}
 }
 
-void print_char(va_list args)
+/**
+ * get_print_func_fp - Function pointer to the right print function
+ *
+ * @s: String from format to compare
+ *
+ * Description: Function pointer to the right print function
+ *
+ * Return: void
+ */
+
+char (*get_print_func_fp)(char *s)
 {
-    char c = va_arg(args, int);  /* char is promoted to int */
-    printf("%c", c);
+	print_funct pfs[] = {
+		{"c", print_char},
+		{"i", print_int},
+		{"f", print_float},
+		{"s", print_str},
+		{NULL, NULL}
+	};
+	int i = 0;
+
+	while (pfs[i].pf != NULL)
+	{
+		if (*s == *pfs[i].pf)
+			return (pfs[i].f);
+		i++;
+	}
+	return (pfs[i].f);
 }
 
-void print_int(va_list args)
+/**
+ * print_char - Prints a character
+ *
+ * @c: Character
+ *
+ * Description: Prints a character
+ *
+ * Return: void
+ */
+
+void print_char(char c);
 {
-    int i = va_arg(args, int);
-    printf("%d", i);
+	_putchar(c);
 }
 
-void print_float(va_list args)
+/**
+ * print_int - Prints an integer
+ *
+ * @s: String of int to print
+ *
+ * Description: Prints an integer
+ *
+ * Return: void
+ */
+
+void print_int(char *s)
 {
-    float f = va_arg(args, double);  /* float is promoted to double */
-    printf("%f", f);
+	int n;
+
+	n = atoi(s);
+	printf("%d", n);
 }
 
-void print_str(va_list args)
+/**
+ * print_float - Prints a float
+ *
+ * @s: String of float to print
+ *
+ * Description: Prints a float
+ *
+ * Return: void
+ */
+
+void print_float(char *s)
 {
-    char *s = va_arg(args, char *);
-    if (s == NULL)
-        printf("(nil)");
-    else
-        printf("%s", s);
+	float n;
+
+	n = atof(s);
+	printf("%f", n);
+}
+
+/**
+ * print_str - Prints a string
+ *
+ * @s: String to print
+ *
+ * Description: Prints a string
+ *
+ * Return: void
+ */
+
+void print_str(char *s)
+{
+	if (s == NULL)
+		s = "(nil)";
+	printf("%s", s);
 }
