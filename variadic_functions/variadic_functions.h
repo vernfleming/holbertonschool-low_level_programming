@@ -52,3 +52,38 @@ typedef struct print_func
 } print_func;
 
 /**
+* print_char - Prints a character.
+ * @s: The character to print.
+ * Return: None.
+ */
+void print_char(char *s);
+
+/**
+ * print_int - Prints an integer.
+ * @s: The integer to print.
+ * Return: None.
+ */
+void print_int(char *s);
+
+/**
+ * print_float - Prints a float.
+ * @s: The float to print.
+ * Return: None.
+ */
+void print_float(char *s);
+
+/**
+ * print_str - Prints a string.
+ * @s: The string to print.
+ * Return: None.
+ */
+void print_str(char *s);
+
+/**
+ * get_print_func_fp - Returns the function pointer to the appropriate print function.
+ * @s: The type identifier (e.g., 'c', 'i', 'f', etc.).
+ * Return: A pointer to the corresponding print function.
+ */
+void (*get_print_func_fp(char s))(char *s);
+
+#endif /* VAR_H */
