@@ -67,7 +67,3 @@ void print_str(va_list args)
         printf("%s", s);
 }
 
-int _putchar(char c)
-{
-    return write(1, &c, 1);
-}
