@@ -1,10 +1,21 @@
 #ifndef VAR_H
 #define VAR_H
 
+/**
+ * description: various function prototypes
+ *
+ */
+
+
 int _putchar(char c);
 int sum_them_all(const unsigned int n, ...);
 void print_numbers(const char *separator, const unsigned int n, ...);
 void print_strings(const char *separator, const unsigned int n, ...);
+
+/**
+ * description: various function prototype
+ * print_func - what it says on the box
+ */
 
 typedef struct print_func
 {
