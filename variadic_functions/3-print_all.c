@@ -25,7 +25,7 @@ void print_all(const char * const format, ...)
         {
             if (format[i] == pfs[j].pf)
             {
-                if (printed)
+                if (printed == 1)
                     printf(", ");
                 pfs[j].f(args);  /* Call the function */
                 printed = 1;
@@ -65,4 +65,9 @@ void print_str(va_list args)
         printf("(nil)");
     else
         printf("%s", s);
+}
+
+int _putchar(char c)
+{
+    return write(1, &c, 1);
 }
