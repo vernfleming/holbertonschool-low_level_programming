@@ -2,7 +2,7 @@
 #define VAR_H
 
 /**
- * description: Various function prototypes for handling variadic functions.
+ * description: Various function prototypes variadic functions.
  */
 
 /**
@@ -80,7 +80,7 @@ void print_float(char *s);
 void print_str(char *s);
 
 /**
- * get_print_func_fp - Returns the function pointer to the appropriate print function.
+ * get_print_func_fp - Returns the function pointer
  * @s: The type identifier (e.g., 'c', 'i', 'f', etc.).
  * Return: A pointer to the corresponding print function.
  */
