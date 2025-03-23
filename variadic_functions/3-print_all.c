@@ -16,6 +16,7 @@ void print_all(const char * const format, ...) {
     char c;
     int d;
     float f;
+    int printed = 0;
 
     va_start(args, format);
     while (format && format[i] != '\0') {
@@ -43,6 +44,7 @@ void print_all(const char * const format, ...) {
                 i++;
                 continue;
         }
+	printed = 1;
         i++;
     }
     va_end(args);
