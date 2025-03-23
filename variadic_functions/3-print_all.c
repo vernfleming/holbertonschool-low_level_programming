@@ -19,12 +19,12 @@ void print_all(const char * const format, ...) {
 
     va_start(args, format);
     while (format && format[i] != '\0') {
-        if (i > 0)  // First condition is to check if it's not the first element
+        if (i > 0)
             printf(", ");
         
         switch (format[i]) {
             case 'c':
-                c = va_arg(args, int);  // char is promoted to int
+                c = va_arg(args, int);
                 printf("%c", c);
                 break;
             case 'i':
@@ -32,7 +32,7 @@ void print_all(const char * const format, ...) {
                 printf("%d", d);
                 break;
             case 'f':
-                f = va_arg(args, double);  // float is promoted to double
+                f = va_arg(args, double);
                 printf("%f", f);
                 break;
             case 's':
