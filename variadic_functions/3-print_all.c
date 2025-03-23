@@ -1,48 +1,72 @@
-#include <stdarg.h>
-#include <stdio.h>
 #include "variadic_functions.h"
+#include <stdio.h>
+#include <stdarg.h>
 
-void print_all(const char * const format, ...) {
-    unsigned int i = 0;
+void print_all(const char * const format, ...)
+{
     va_list args;
-    char *str;
-    char c;
-    int d;
-    float f;
-    int printed = 0;  /* To track if we need to print the separator */
+    int i = 0;
+    int printed = 0;
+    print_funct pfs[] = {
+        {'c', print_char},
+        {'i', print_int},
+        {'f', print_float},
+        {'s', print_str},
+        {0, NULL}  /* End of array */
+    };
 
     va_start(args, format);
-    while (format && format[i] != '\0') {
-        if (printed)  /* Print separator only if it's not the first element */
-            printf(", ");
 
-        switch (format[i]) {
-            case 'c':
-                c = va_arg(args, int);  /* char is promoted to int */
-                printf("%c", c);
+    while (format && format[i] != '\0')
+    {
+        int j = 0;
+        while (pfs[j].pf != 0)
+        {
+            if (format[i] == pfs[j].pf)
+            {
+                if (printed)
+                    printf(", ");
+                pfs[j].f(args);  /* Call the function */
+                printed = 1;
                 break;
-            case 'i':
-                d = va_arg(args, int);
-                printf("%d", d);
-                break;
-            case 'f':
-                f = va_arg(args, double);  /* float is promoted to double */
-                printf("%f", f);
-                break;
-            case 's':
-                str = va_arg(args, char *);
-                if (str)
-                    printf("%s", str);
-                else
-                    printf("(nil)");
-                break;
-            default:
-                i++;
-                continue;
+            }
+            j++;
         }
-        printed = 1;  /* Set printed to 1 once a value is printed */
         i++;
     }
+
     va_end(args);
     printf("\n");
+}
+
+void print_char(va_list args)
+{
+    char c = va_arg(args, int);  /* char is promoted to int */
+    printf("%c", c);
+}
+
+void print_int(va_list args)
+{
+    int i = va_arg(args, int);
+    printf("%d", i);
+}
+
+void print_float(va_list args)
+{
+    float f = va_arg(args, double);  /* float is promoted to double */
+    printf("%f", f);
+}
+
+void print_str(va_list args)
+{
+    char *s = va_arg(args, char *);
+    if (s == NULL)
+        printf("(nil)");
+    else
+        printf("%s", s);
+}
+
+int _putchar(char c)
+{
+    return write(1, &c, 1);
 }
