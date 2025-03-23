@@ -47,8 +47,8 @@ void print_strings(const char *separator, const unsigned int n, ...);
  */
 typedef struct print_func
 {
-    char *pf;             /**< Type identifier */
-    void (*f)(char *s);   /**< Function pointer to print the type */
+char *pf;             /**< Type identifier */
+void (*f)(char *s);   /**< Function pointer to print the type */
 } print_func;
 
 /**
