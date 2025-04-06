@@ -2,12 +2,12 @@
 #include <stdlib.h>
 
 /**
- * insert_dnodeint_at_index - inserts a new node at a given position
+ * insert_dnodeint_at_index - inserts a new node somewhere
  * @h: double pointer to the head of the list
- * @idx: index at which to insert the new node (starting at 0)
+ * @idx: index at which to insert the new node
  * @n: value to assign to the new node
  *
- * Return: address of the new node, or NULL if it failed
+ * Return: address of the new node or NULL if it failed
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
