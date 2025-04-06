@@ -8,7 +8,7 @@
 
 int open_file_from(const char *filename);
 int open_file_to(const char *filename);
-void copy_file(int fd_from, int fd_to, const char *file_from, const char *file_to);
+void copy_file(int fd_from, int fd_to, const char *file_from, const char *file_to, char *first_chunk, ssize_t first_bytes);
 void close_fd(int fd);
 
 /**
@@ -21,6 +21,8 @@ void close_fd(int fd);
 int main(int argc, char *argv[])
 {
 	int fd_from, fd_to;
+	char buffer[BUF_SIZE];
+	ssize_t first_bytes;
 
 	if (argc != 3)
 	{
@@ -29,8 +31,19 @@ int main(int argc, char *argv[])
 	}
 
 	fd_from = open_file_from(argv[1]);
+
+	first_bytes = read(fd_from, buffer, BUF_SIZE);
+	if (first_bytes == -1)
+	{
+		close_fd(fd_from);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+
 	fd_to = open_file_to(argv[2]);
-	copy_file(fd_from, fd_to, argv[1], argv[2]);
+
+	copy_file(fd_from, fd_to, argv[1], argv[2], buffer, first_bytes);
+
 	close_fd(fd_from);
 	close_fd(fd_to);
 
@@ -79,34 +92,35 @@ int open_file_to(const char *filename)
  * @fd_to: file descriptor of destination file
  * @file_from: name of the source file
  * @file_to: name of the destination file
+ * @first_chunk: the first bytes already read
+ * @first_bytes: how many bytes were already read
  */
-void copy_file(int fd_from, int fd_to, const char *file_from, const char *file_to)
+void copy_file(int fd_from, int fd_to, const char *file_from,
+	       const char *file_to, char *first_chunk, ssize_t first_bytes)
 {
-	char buffer[BUF_SIZE];
 	ssize_t r_bytes, w_bytes;
 
-	r_bytes = read(fd_from, buffer, BUF_SIZE);
-	if (r_bytes == -1)
+	w_bytes = write(fd_to, first_chunk, first_bytes);
+	if (w_bytes == -1 || w_bytes != first_bytes)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+		exit(99);
 	}
 
-	while (r_bytes > 0)
+	while ((r_bytes = read(fd_from, first_chunk, BUF_SIZE)) > 0)
 	{
-		w_bytes = write(fd_to, buffer, r_bytes);
+		w_bytes = write(fd_to, first_chunk, r_bytes);
 		if (w_bytes == -1 || w_bytes != r_bytes)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
 		}
+	}
 
-		r_bytes = read(fd_from, buffer, BUF_SIZE);
-		if (r_bytes == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-			exit(98);
-		}
+	if (r_bytes == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		exit(98);
 	}
 }
 
