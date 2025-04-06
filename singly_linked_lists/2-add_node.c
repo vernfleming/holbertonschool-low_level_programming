@@ -7,7 +7,6 @@
  *
  * @head: head of our linked list
  * @str: string to be stored in node
- *
  * Description: as above
  * Return: address of new start node or NULL if fail
  */
@@ -16,6 +15,7 @@ list_t *add_node(list_t **head, const char *str)
 {
 	list_t *new_node = (list_t *)malloc(sizeof(list_t));
 	int str_len = 0;
+	
 	if (!new_node)
 		return (NULL);
 	new_node->str = strdup(str);
