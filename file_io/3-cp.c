@@ -13,11 +13,11 @@ void copy_file(int fd_from, int fd_to, const char *file_from,
 void close_fd(int fd);
 
 /**
- * main - Entry point to copy content from one file to another
+ * main - entry point to function
  * @argc: argument count
  * @argv: argument vector
  *
- * Return: 0 on success, or exits with error codes 97-100
+ * Return: 0 on success or exits with error
  */
 int main(int argc, char *argv[])
 {
@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
 }
 
 /**
- * open_file_from - opens the source file for reading
+ * open_file_from - opens the source file
  * @filename: name of the source file
  *
  * Return: file descriptor or exits with code 98
@@ -70,8 +70,8 @@ int open_file_from(const char *filename)
 }
 
 /**
- * open_file_to - opens the destination file for writing/truncating
- * @filename: name of the destination file
+ * open_file_to - opens destination file
+ * @filename: name of destination file
  *
  * Return: file descriptor or exits with code 99
  */
@@ -88,13 +88,13 @@ int open_file_to(const char *filename)
 }
 
 /**
- * copy_file - reads from one file and writes to another
+ * copy_file - simply reads from one file and writes to another
  * @fd_from: file descriptor of source file
  * @fd_to: file descriptor of destination file
- * @file_from: name of the source file
- * @file_to: name of the destination file
- * @first_chunk: the first bytes already read
- * @first_bytes: how many bytes were already read
+ * @file_from: name of source file
+ * @file_to: name of destination file
+ * @first_chunk: the first bytes read
+ * @first_bytes: how many bytes were read
  */
 void copy_file(int fd_from, int fd_to, const char *file_from,
 	       const char *file_to, char *first_chunk, ssize_t first_bytes)
@@ -126,7 +126,7 @@ void copy_file(int fd_from, int fd_to, const char *file_from,
 }
 
 /**
- * close_fd - closes a file descriptor with error checking
+ * close_fd - closes a file descriptor
  * @fd: file descriptor to close
  */
 void close_fd(int fd)

@@ -4,8 +4,8 @@
 
 /**
  * append_text_to_file - appends text at the end of a file
- * @filename: name of the file
- * @text_content: NULL-terminated string to append
+ * @filename: name of the file being appended
+ * @text_content: string to append
  *
  * Return: 1 on success, -1 on failure
  */
