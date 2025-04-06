@@ -8,7 +8,8 @@
 
 int open_file_from(const char *filename);
 int open_file_to(const char *filename);
-void copy_file(int fd_from, int fd_to, const char *file_from, const char *file_to, char *first_chunk, ssize_t first_bytes);
+void copy_file(int fd_from, int fd_to, const char *file_from,
+	       const char *file_to, char *first_chunk, ssize_t first_bytes);
 void close_fd(int fd);
 
 /**
